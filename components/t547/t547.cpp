@@ -75,7 +75,7 @@ void T547::eink_on_() {
 }
 
 void T547::display() {
-  ESP_LOGV(TAG, "Display called");
+  ESP_LOGV(TAG, "zer Display called");
   uint32_t start_time = millis();
 
   epd_poweron();
@@ -83,7 +83,7 @@ void T547::display() {
   epd_draw_grayscale_image(epd_full_screen(), this->buffer_);
   epd_poweroff();
 
-  ESP_LOGV(TAG, "Display finished (full) (%ums)", millis() - start_time);
+  ESP_LOGV(TAG, "zerbian, Display finished (full) (%ums)", millis() - start_time);
 }
 
 }  // namespace T547
