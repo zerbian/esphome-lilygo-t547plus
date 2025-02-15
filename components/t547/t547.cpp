@@ -50,7 +50,7 @@ void HOT T547::draw_absolute_pixel_internal(int x, int y, Color color) {
   if (color.red == color.green && color.green == color.blue) {
     uint8_t gs = 255 - color.red;
   }
-  epd_draw_pixel(x, y, gs, this->buffer_);
+  epd_draw_pixel(x, y, 0, this->buffer_);
 }
 
 void T547::dump_config() {
