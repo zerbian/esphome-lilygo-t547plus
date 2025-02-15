@@ -46,12 +46,13 @@ void HOT T547::draw_absolute_pixel_internal(int x, int y, Color color) {
   if (x >= this->get_width_internal() || y >= this->get_height_internal() || x < 0 || y < 0)
     return;
   
-    uint8_t gs = 0;
-  // uint8_t gs = ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
+  uint8_t gs = 0;
   if (color.red == color.green && color.green == color.blue) {
-    uint8_t gs = 255 - color.red;
+    gs = 255 - color.red;
+  } else {
+    gs = ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
   }
-  epd_draw_pixel(x, y, 0, this->buffer_);
+  epd_draw_pixel(x, y, gs, this->buffer_);
 }
 
 void T547::dump_config() {
