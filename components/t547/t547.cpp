@@ -1,4 +1,4 @@
-f#include "t547.h"
+#include "t547.h"
 #include "esphome/core/log.h"
 #include "esphome/core/application.h"
 #include "esphome/core/helpers.h"
