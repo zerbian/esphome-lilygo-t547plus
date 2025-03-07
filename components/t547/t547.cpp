@@ -49,8 +49,8 @@ void HOT T547::draw_absolute_pixel_internal(int x, int y, Color color) {
   if (y < 100) gs = ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
   else if (y < 200) gs = (color.red * 2126 + color.green * 7152 + color.blue * 722) / 10000;
   else if (y < 300) {
-    uint16_t gs_ = gs * gs;
-    gs = gs_ / 255;
+    float t = (gs / 255.0f);
+    gs = static_cast<uint8_t>(t * t / 255.0f;)
   }
   else gs = color.blue;
   //uint8_t gs = 1 - ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
