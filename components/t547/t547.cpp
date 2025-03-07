@@ -47,6 +47,7 @@ void HOT T547::draw_absolute_pixel_internal(int x, int y, Color color) {
     return;
   uint8_t gs;
   if (y < 150) gs = ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
+  else if (y < 300) gs = gs * gs / 255;
   else gs = color.blue;
   //uint8_t gs = 1 - ((color.red * 2126 / 10000) + (color.green * 7152 / 10000) + (color.blue * 722 / 10000));
   epd_draw_pixel(x, y, gs, this->buffer_);
